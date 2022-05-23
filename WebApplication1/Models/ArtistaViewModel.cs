@@ -5,7 +5,6 @@ namespace WebApplication1.Models
     public class ArtistaViewModel
     {
         public int IdArtista { get; set; }
-        [Required]
         [StringLength(150)]
         public string Nome { get; set; }
 

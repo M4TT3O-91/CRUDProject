@@ -1,0 +1,119 @@
+﻿@model MyMusicViewModels
+
+@{
+    ViewBag.Title = "Aggiungi";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div roll="alert" class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div>Aggiungi la tua musica:</div>
+        <hr>
+        <h2>Il tuo brano</h2>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BranoViewModel.TitoloBrano, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BranoViewModel.TitoloBrano)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BranoViewModel.AnnoUscita, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BranoViewModel.AnnoUscita)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BranoViewModel.Durata, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BranoViewModel.Durata)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BranoViewModel.Genere, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BranoViewModel.Genere)
+            </div>
+        </div>
+
+        <hr>
+        <h2>L' Artista</h2>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArtistaViewModel.Nome, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArtistaViewModel.Nome)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArtistaViewModel.Cognome, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArtistaViewModel.Cognome)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArtistaViewModel.NomeArte, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArtistaViewModel.NomeArte)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArtistaViewModel.Tipo, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ArtistaViewModel.Tipo)
+            </div>
+        </div>
+
+        <hr>
+        <h2>La Band</h2>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BandViewModel.Nome, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BandViewModel.Nome)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BandViewModel.Immagine, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BandViewModel.Immagine)
+            </div>
+        </div>
+
+        <hr>
+        <h2>L'Album</h2>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AlbumViewModel.TitoloAlbum, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AlbumViewModel.TitoloAlbum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AlbumViewModel.AnnoUscita, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AlbumViewModel.AnnoUscita)
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salva" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Indietro","IndexBrani")
+</div>

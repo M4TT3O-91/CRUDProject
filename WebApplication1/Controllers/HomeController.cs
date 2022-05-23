@@ -43,9 +43,29 @@ namespace WebApplication1.Controllers
 
         public IActionResult Insert()
         {
-            return RedirectToAction("Index");
+            return View();
         }
 
+        [HttpPost]
+        public IActionResult Insert(MyMusicViewModels music)
+        {
+            int idArtista = _dBPersister.InsertArtista(music.ArtistaViewModel);
+            music.BandViewModel.Artista_ID = idArtista;
+            _logger.LogInformation($"ID artista inserito: {idArtista}");
+
+            int idBrano = _dBPersister.InsertBrano(music.BranoViewModel);
+            _logger.LogInformation($"ID Brano inserito: {idBrano}");
+            music.AlbumViewModel.Brano_ID = idBrano;
+
+            int idBand = _dBPersister.InsertBand(music.BandViewModel);
+            _logger.LogInformation($"ID Band inserito: {idBand}");
+            music.AlbumViewModel.Band_ID = idBand;
+
+            int idAlbum = _dBPersister.InsertAlbum(music.AlbumViewModel);
+            _logger.LogInformation($"ID Album inserito: {idAlbum}");
+
+            return RedirectToAction("IndexBrani");
+        }
 
 
 

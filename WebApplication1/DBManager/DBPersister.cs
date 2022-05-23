@@ -23,13 +23,14 @@ namespace WebApplication1.DBManager
             command.Parameters.AddWithValue("@AnnoUscita", item.AnnoUscita);
             command.Parameters.AddWithValue("@Brano_ID", item.Brano_ID);
             command.Parameters.AddWithValue("@Band_ID", item.Band_ID);
-            return command.ExecuteNonQuery();
+            return Convert.ToInt32(command.ExecuteScalar());
+
         }
 
         public int InsertArtista(ArtistaViewModel item)
         {
             string sql = @"
-            INSERT INTO [dbo].[Album]
+            INSERT INTO [dbo].[Artista]
                        ([Nome]
                        ,[Cognome]
                        ,[NomeArte]
@@ -44,7 +45,7 @@ namespace WebApplication1.DBManager
             command.Parameters.AddWithValue("@Cognome", item.Cognome);
             command.Parameters.AddWithValue("@NomeArte", item.NomeArte);
             command.Parameters.AddWithValue("@Tipo", item.Tipo);
-            return command.ExecuteNonQuery();
+            return Convert.ToInt32(command.ExecuteScalar());
         }
 
         public int InsertBand(BandViewModel item)
@@ -62,7 +63,7 @@ namespace WebApplication1.DBManager
             command.Parameters.AddWithValue("@Nome", item.Nome);
             command.Parameters.AddWithValue("@Immagine", item.Immagine);
             command.Parameters.AddWithValue("@Artista_ID", item.Artista_ID);
-            return command.ExecuteNonQuery();
+            return Convert.ToInt32(command.ExecuteScalar());
         }
 
         public int InsertBrano(BranoViewModel item)
@@ -82,7 +83,7 @@ namespace WebApplication1.DBManager
             command.Parameters.AddWithValue("@AnnoUscita", item.AnnoUscita);
             command.Parameters.AddWithValue("@Durata", item.Durata);
             command.Parameters.AddWithValue("@Genere", item.Genere);
-            return command.ExecuteNonQuery();
+            return Convert.ToInt32(command.ExecuteScalar());
         }
 
 

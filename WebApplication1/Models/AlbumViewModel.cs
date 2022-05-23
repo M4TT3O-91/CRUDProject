@@ -9,11 +9,11 @@ namespace WebApplication1.Models
         [StringLength(150)]
         public string TitoloAlbum { get; set; }
 
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime AnnoUscita { get; set; }
-        [Required]
+        
         public int Brano_ID { get; set; }
-        [Required]
+        
         public int Band_ID { get; set; }
     }
 }

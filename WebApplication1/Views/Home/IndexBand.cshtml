@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MyMusicViewModels>
+﻿@model IEnumerable<BandViewModel>
 @{
-    ViewBag.Title = "La tua musica:";
+    ViewBag.Title = "Band";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Le tue band preferite</h1>
+    <h1 class="display-4">LE TUE BAND PREFERITE:</h1>
     <p class="text-right">@Html.ActionLink("Aggiungi nuova Band","Insert")<p />
 
     <table class="table">
@@ -13,11 +13,11 @@
                 foreach (var item in Model)
                 {
                 <tr>
-                    <td>@item.BandViewModel.Nome</td>
-                    <td>@item.BandViewModel.Immagine</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Immagine</td>
                     <td>
-                            @Html.ActionLink("Modifica","Edit",new {ID = item.BandViewModel.IdBand}) | 
-                            @Html.ActionLink("Dettagli","Detail",new {ID = item.BandViewModel.IdBand})
+                            @Html.ActionLink("Modifica","Edit",new {ID = item.IdBand}) | 
+                            @Html.ActionLink("Dettagli","Detail",new {ID = item.IdBand})
                     </td>
                 </tr>
                 }
