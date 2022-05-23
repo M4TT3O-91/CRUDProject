@@ -1,0 +1,61 @@
+﻿@model BranoViewModel
+
+@{
+    ViewBag.Title = "Modifica Brano";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div roll="alert" class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div>Modifica il tuo brano</div>
+        <hr>
+        <h2>Il tuo brano</h2>
+        @Html.HiddenFor(model => model.IdBrano);
+        <div class="form-group">
+            @Html.LabelFor(model => model.TitoloBrano, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TitoloBrano)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AnnoUscita, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AnnoUscita)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Durata, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Durata)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Genere, htmlAttributes: new {@class = "label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Genere)
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salva" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Indietro","IndexBrani")
+</div>
+

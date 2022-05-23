@@ -27,6 +27,27 @@ namespace WebApplication1.DBManager
             }
         }
 
+        public BranoViewModel GetBranoByID(int id)
+        {
+            BranoViewModel brano = new BranoViewModel();
+            string sql = @"Select * from Brano where IdBrano= @id";
+
+            using var connection = new SqlConnection(DBManager.Constants.ConnectionString);
+            connection.Open();
+            using var command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("@id", id);
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                brano.IdBrano = Convert.ToInt32(reader["IdBrano"].ToString());
+                brano.TitoloBrano = reader["TitoloBrano"].ToString();
+                brano.AnnoUscita = DateTime.Parse(reader["AnnoUscita"].ToString());
+                brano.Durata = Decimal.Parse(reader["Durata"].ToString());
+                brano.Genere = reader["Genere"].ToString();
+            }
+            return brano;
+        }
+
         public IEnumerable<ArtistaViewModel> GetAllArtista()
         {
             string sql = @"Select * from Artista";

@@ -7,13 +7,12 @@ namespace WebApplication1.DBManager
     {
         public int UpdateAlbum(AlbumViewModel item)
         {
-            string sql = @"
-            UPDATE INTO [dbo].[Album]
-                       ([TitoloAlbum]
-                       ,[AnnoUscita]
-                       ,[Brano_ID]
-                       ,[Band_ID])
-                 WHERE IdAlbum = @IdAlbum";
+            string sql = @" UPDATE Album 
+                           SET [TitoloAlbum] = @TitoloAlbum
+                                ,[AnnoUscita] = @AnnoUscita
+                                ,[Brano_ID] = @Brano_ID
+                                ,[Band_ID] = Band_ID
+                            WHERE IdAlbum = @IdAlbum";
 
             using var connection = new SqlConnection(DBManager.Constants.ConnectionString);
             connection.Open();
@@ -28,13 +27,12 @@ namespace WebApplication1.DBManager
 
         public int UpdateArtista(ArtistaViewModel item)
         {
-            string sql = @"
-            UPDATE INTO [dbo].[Album]
-                       ([Nome]
-                       ,[Cognome]
-                       ,[NomeArte]
-                       ,[Tipo])
-                 WHERE IdArtista = @IdArtista";
+            string sql = @"UPDATE Album
+                            SET [Nome] = @Nome
+                                ,[Cognome] = @Cognome
+                                ,[NomeArte] = @NomeArte
+                                ,[Tipo] = @Tipo
+                            WHERE IdArtista = @IdArtista";
 
             using var connection = new SqlConnection(DBManager.Constants.ConnectionString);
             connection.Open();
@@ -49,12 +47,11 @@ namespace WebApplication1.DBManager
 
         public int UpdateBand(BandViewModel item)
         {
-            string sql = @"
-            UPDATE INTO[dbo].[Band]
-                       ([Nome]
-                       ,[Immagine]
-                       ,[Artista_ID])
-            WHERE IdBand = @IdBand";
+            string sql = @" UPDATE  Band
+                            SET [Nome] = @Nome
+                               ,[Immagine] = @Immagine
+                               ,[Artista_ID] = @ArtistaID
+                            WHERE IdBand = @IdBand";
             using var connection = new SqlConnection(DBManager.Constants.ConnectionString);
             connection.Open();
             using var command = new SqlCommand(sql, connection);
@@ -67,13 +64,12 @@ namespace WebApplication1.DBManager
 
         public int UpdateBrano(BranoViewModel item)
         {
-            string sql = @"
-            UPDATE INTO[dbo].[Brano]
-                   ([TitoloBrano]
-                   ,[AnnoUscita]
-                   ,[Durata]
-                   ,[Genere])
-             WHERE IdBrano = @IdBrano";
+            string sql = @"UPDATE Brano 
+                            SET [TitoloBrano] = @TitoloBrano
+                               ,[AnnoUscita] = @AnnoUscita
+                               ,[Durata] = @Durata
+                               ,[Genere] = @Genere
+                         WHERE IdBrano = @IdBrano";
             using var connection = new SqlConnection(DBManager.Constants.ConnectionString);
             connection.Open();
             using var command = new SqlCommand(sql, connection);

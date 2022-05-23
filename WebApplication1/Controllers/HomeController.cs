@@ -39,6 +39,27 @@ namespace WebApplication1.Controllers
             return View(_dbReader.GetAllArtista());
         }
 
+        [HttpGet]
+        public IActionResult EditBrano(int id)
+        {
+            var brano = _dbReader.GetBranoByID(id);
+            if(brano != null)
+            {
+                return View(brano);
+            }
+            ViewBag.Message = "Brano non trovato";
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditBrano(BranoViewModel item)
+        {
+            var res = _dbReader.GetBranoByID(item.IdBrano);
+            if (res != null)
+                _dbModifier.UpdateBrano(item);
+
+            return RedirectToAction("IndexBrani");
+        }
 
 
         public IActionResult Insert()
