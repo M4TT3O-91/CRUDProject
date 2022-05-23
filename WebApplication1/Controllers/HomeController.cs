@@ -61,7 +61,6 @@ namespace WebApplication1.Controllers
             return RedirectToAction("IndexBrani");
         }
 
-
         public IActionResult Insert()
         {
             return View();
@@ -87,10 +86,6 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("IndexBrani");
         }
-
-
-
-
 
         public IActionResult Privacy()
         {
