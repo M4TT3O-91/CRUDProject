@@ -10,6 +10,7 @@ namespace WebApplication1.Models
         public string TitoloAlbum { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime AnnoUscita { get; set; }
         
         public int Brano_ID { get; set; }

@@ -11,6 +11,7 @@ namespace WebApplication1.Models
         public string TitoloBrano { get; set; }
 
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime AnnoUscita { get; set; }
 
         [Range (0,999.99)]

@@ -5,7 +5,7 @@
 
 <div class="text-center">
     <h1 class="display-4">I TUOI ALBUM PREFERITI</h1>
-    <p class="text-right">@Html.ActionLink("Aggiungi nuovo Album","Insert")<p />
+    @*<p class="text-right">@Html.ActionLink("Aggiungi nuovo Album","Insert")<p />*@
 
     <table class="table">
             @if (Model != null && Model.Any())
@@ -14,7 +14,7 @@
                 {
                 <tr>
                     <td>@album.TitoloAlbum</td>
-                    <td>@album.AnnoUscita</td>
+                    <td>@album.AnnoUscita.ToShortDateString()</td>
                     <td>
                             @Html.ActionLink("Modifica","Edit",new {ID = album.IdAlbum})|
                             @Html.ActionLink("Dettagli","Detail",new {ID = album.IdAlbum})
