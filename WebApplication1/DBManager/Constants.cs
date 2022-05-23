@@ -2,6 +2,6 @@
 {
     public class Constants
     {
-        public const string ConnectionString = @"Server = ACADEMYNETUD07\SQLEXPRESS; Database = Impiegati; Trusted_Connection = True;";
+        public const string ConnectionString = @"Server = ACADEMYNETUD07\SQLEXPRESS; Database = MyMusic; Trusted_Connection = True;";
     }
 }

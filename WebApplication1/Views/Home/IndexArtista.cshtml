@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ArtistaViewModel>
+@{
+    ViewBag.Title = "I tuoi artisti preferiti:";
+}
+
+<div class="text-center">
+    <h1 class="display-4">I tuoi artisti preferiti</h1>
+    <p class="text-right">@Html.ActionLink("Aggiungi nuovo Artista","Insert")<p />
+
+    <table class="table">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Nome</td>
+                    <td>@item.Cognome</td>
+                    <td>@item.NomeArte</td>
+                    <td>@item.Tipo</td>
+                    <td>
+                            @Html.ActionLink("Modifica","Edit",new {ID = item.IdArtista})|
+                            @Html.ActionLink("Dettagli","Detail",new {ID = item.IdArtista})
+                    </td>
+                </tr>
+                }
+            }
+            else
+            {
+            <tr>
+                <td colspan="5" class="text-center"> Nessun Artista disponibile</td>
+            </tr>
+            }
+    </table>
+
+</div>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MyMusicViewModels>
+@{
+    ViewBag.Title = "La tua musica:";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Le tue band preferite</h1>
+    <p class="text-right">@Html.ActionLink("Aggiungi nuova Band","Insert")<p />
+
+    <table class="table">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.BandViewModel.Nome</td>
+                    <td>@item.BandViewModel.Immagine</td>
+                    <td>
+                            @Html.ActionLink("Modifica","Edit",new {ID = item.BandViewModel.IdBand}) | 
+                            @Html.ActionLink("Dettagli","Detail",new {ID = item.BandViewModel.IdBand})
+                    </td>
+                </tr>
+                }
+            }
+            else
+            {
+            <tr>
+                <td colspan="5" class="text-center"> Nessun Artista ancora disponibile</td>
+            </tr>
+            }
+    </table>
+
+</div>

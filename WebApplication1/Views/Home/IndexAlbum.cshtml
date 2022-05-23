@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AlbumViewModel>
+@{
+    ViewBag.Title = "I tuoi Album preferiti:";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p class="text-right">@Html.ActionLink("Aggiungi nuovo Album","Insert")<p />
+
+    <table class="table">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var album in Model)
+                {
+                <tr>
+                    <td>@album.TitoloAlbum</td>
+                    <td>@album.AnnoUscita</td>
+                    <td>
+                            @Html.ActionLink("Modifica","Edit",new {ID = album.IdAlbum})|
+                            @Html.ActionLink("Dettagli","Detail",new {ID = album.IdAlbum})
+                    </td>
+                </tr>
+                }
+            }
+            else
+            {
+            <tr>
+                <td colspan="5" class="text-center"> Nessun Album disponibile</td>
+            </tr>
+            }
+    </table>
+
+</div>
